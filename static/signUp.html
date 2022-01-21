@@ -1,0 +1,52 @@
+<html ng-app="profilePage">
+
+    <head>
+        <title>Bunch</title>
+        <link href="movement.css" rel="stylesheet" type="text/css"></link>
+        <link href="CheckBox.css" rel="stylesheet" type="text/css"></link>
+        <script type="text/javascript" src="js/jquery-min.js"></script>
+        <script type="text/javascript" src="js/angular-min.js"></script>
+        <script type="text/javascript" src="js/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="js/md5-min.js"></script>
+        <script type="text/javascript" src="js/animations.js"></script>
+        <script type="text/javascript" src="js/profile.js"></script>
+    </head>
+
+    <body ng-controller="profilePageController" style="background-image: url('bg.jpg');">
+        <div id="header">
+            <img src="bunch.png" />
+        </div>
+        <div id="login">
+                <table>
+                    <tr>
+                        <td style="font-size: 18pt">
+                            Sign Up to Bunch
+                            <p>
+                                <input type="text" ng-model="name" placeholder="Full Name" style="font-size: 14pt;" />
+                            </p>
+                            <p>
+                                <input type="text" ng-model="username" placeholder="Username" style="font-size: 14pt;" />
+                            </p>
+                            <p>
+                                <input type="text" ng-model="email" placeholder="Email" style="font-size: 14pt;" />
+                            </p>
+                            <p>
+                                <input type="password" ng-model="password" placeholder="Password" style="font-size: 14pt;" />
+                            </p>
+                            <p>
+                                <div class="continueButton" ng-click="signupSubmit()">Let's Go!</div>
+                            </p>
+                            <input id="rememberMeCheckbox" type="checkbox" value="Add To Cart 2" ng-model="rememberMe">
+                            <label for="rememberMeCheckbox" style="font-size: 14pt; float: left; left: 20px;">Remember Me</label>
+                        </td>
+                        <td>
+                            <div id="logInLink" style="font-size: 14pt;">
+                                <a href="index.html">Already a Member? Log In!</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+    </body>
+</html>

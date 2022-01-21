@@ -1,0 +1,80 @@
+<!-- >
+main.html
+<-->
+
+<html ng-app="myPage">
+
+    <head>
+        <title>Function</title>
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+        <link href="movement.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/jquery-min.js"></script>
+        <script type="text/javascript" src="js/angular-min.js"></script>
+        <script type="text/javascript" src="js/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="js/md5-min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+        <script type="text/javascript" src="js/myPageManager.js"></script>
+    </head>
+
+    <body ng-controller="mainController">
+        <div class="dim" ng-click="hideAll()"></div>
+        <div class="projectDropdown">
+            {{currentProjectName}}
+            <input class="loginInput" ng-model="newProjectName" style="background-color: #E9E9E9!important" placeholder="Project Name" />
+            <div class="submitButton" ng-click="submitProjectChanges()">
+                Save Changes
+            </div>
+        </div>
+        <div class="stageDropdown">
+            {{currentStageName}}
+            <input class="loginInput" ng-model="newStageName" style="background-color: #E9E9E9!important" placeholder="New Stage Name" />
+            <div class="submitButton" ng-click="submitStageChanges()">
+                Save Changes
+            </div>
+        </div>
+        <div class="storyDropdown">
+            {{currentStoryName}}
+            <input class="loginInput" ng-model="newStoryName" style="background-color: #E9E9E9!important" placeholder="New Story Name" />
+            <div class="submitButton" ng-click="submitStoryChanges()">
+                Save Changes
+            </div>
+        </div>
+
+        <div id="header">
+            DeleGator
+        </div>
+
+        <div class="cardContainer">
+            <div id="project{{project.serial}}" class="card" ng-repeat="project in projects"
+                ng-click="getStages(project.serial)">
+                {{project.name}}
+                <i class="material-icons editIcon" ng-click="openProjectDropdown(project)">edit</i>
+            </div>
+            <div class="submitButton" ng-click="openProjectDropdown()">
+                Create Project
+            </div>
+        </div>
+
+        <div class="stagesContainer">
+            <div class="stage" ng-repeat="stage in stages" ng-init="getStories(stage, $index)" ng-mouseup="dropStory(stage)">
+                {{stage.name}}
+                <div class="story" ng-repeat="story in stories[$index]" ng-mousedown="moveStory(story)">
+                    {{story.name}}
+                    <i class="material-icons editIcon" ng-click="openStoryDropdown(stage.serial, story)">edit</i>
+                </div>
+                <div class="addStory" ng-click="openStoryDropdown(stage.serial)">
+                    Add a story
+                </div>
+            </div>
+        </div>
+
+        <div class="fob" ng-click="openStageDropdown()">
+            <i class="material-icons">add</i>
+        </div>
+
+        <div id="tempStory">
+            {{currentStory.name}}
+        </div>
+
+    </body>
+</html>

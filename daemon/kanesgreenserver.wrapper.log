@@ -1,0 +1,132 @@
+2021-05-01 21:14:34 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-05-01 21:14:34 - Started 68628
+2021-05-20 10:33:37 - Stopping kanesgreenserver.exe
+2021-05-20 10:33:37 - ProcessKill 68628
+2021-05-20 10:33:37 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2021-05-20 10:36:02 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-05-20 10:36:02 - Started 6960
+2021-06-02 01:24:53 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-06-02 01:24:53 - Started 6684
+2021-06-13 18:36:01 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-06-13 18:36:01 - Started 7148
+2021-06-13 18:42:37 - Stopping kanesgreenserver.exe
+2021-06-13 18:42:37 - ProcessKill 7148
+2021-06-13 18:42:37 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2021-06-13 18:43:07 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-06-13 18:43:07 - Started 6772
+2021-06-25 13:44:45 - Stopping kanesgreenserver.exe
+2021-06-25 13:44:45 - ProcessKill 6772
+2021-06-25 13:44:45 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2021-06-25 13:45:15 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-06-25 13:45:15 - Started 6000
+2021-07-15 22:36:56 - Stopping kanesgreenserver.exe
+2021-07-15 22:36:56 - ProcessKill 6000
+2021-07-15 22:36:56 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2021-07-15 22:37:31 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-07-15 22:37:31 - Started 6564
+2021-08-22 20:10:04 - Stopping kanesgreenserver.exe
+2021-08-22 20:10:04 - ProcessKill 6564
+2021-08-22 20:10:04 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2021-08-22 20:10:37 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-08-22 20:10:37 - Started 6640
+2021-09-15 11:46:57 - Stopping kanesgreenserver.exe
+2021-09-15 11:46:57 - ProcessKill 6640
+2021-09-15 11:46:57 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2021-09-15 11:47:43 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-09-15 11:47:43 - Started 6784
+2021-10-29 10:13:06 - Stopping kanesgreenserver.exe
+2021-10-29 10:13:06 - ProcessKill 6784
+2021-10-29 10:13:06 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2021-10-29 10:23:18 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\micro\Documents\Projects\Mindmappr\node_modules\node-windows\lib\wrapper.js --file C:\Users\micro\Documents\Projects\Mindmappr\app.js --scriptoptions= --log "Kane's Green Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2021-10-29 10:23:18 - Started 6828
+2021-10-29 12:02:26 - Stopping kanesgreenserver.exe
+2021-10-29 12:02:26 - ProcessKill 6828
+2021-10-29 12:02:26 - Shutdown exception
+Message:A system shutdown is in progress.
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()

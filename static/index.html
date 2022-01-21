@@ -1,0 +1,39 @@
+<!-- >
+index.html
+<-->
+
+<html ng-app="profilePage">
+
+    <head>
+        <title>Function</title>
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+        <link href="movement.css" rel="stylesheet" type="text/css"></link>
+        <script type="text/javascript" src="js/angular-min.js"></script>
+        <script type="text/javascript" src="js/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="js/md5-min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+        <script type="text/javascript" src="js/profile.js"></script>
+    </head>
+
+    <body ng-controller="profilePageController">
+        <div id="login" class="loginContainer">
+            <input ng-model="emailOrUsername" class="loginInput" type="text" placeholder="Email/Username">
+            <input ng-model="loginPassword" class="loginInput" type="password" placeholder="password">
+            <div class="loginButton" ng-click="loginSubmit()">Login</div>
+            <div class="rahText" ng-click="swapTo('signup')">New around here? Create an account!</div>
+
+        </div>
+
+        <div id="signup" class="loginContainer">
+            <input ng-model="username" class="loginInput" type="text" placeholder="username">
+            <input ng-model="email" class="loginInput" type="text" placeholder="email">
+            <input ng-model="password" class="loginInput" type="password" placeholder="password">
+            <div class="loginButton" ng-click="signupSubmit()">Sign Up</div>
+            <div class="rahText" ng-click="swapTo('login')">Already have an account? Log in!</div>
+        </div>
+
+    </body>
+</html>
