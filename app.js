@@ -7,7 +7,6 @@ app.js
 
 var express = require("express"),
 	app = express(),
-	mysql = require("mysql"),
 	cookie = require('cookie'),
 	md5 = require("md5"),
 	port = 81;
