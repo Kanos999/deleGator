@@ -1,5 +1,5 @@
 {
-  "name": "Mindmappr",
+  "name": "deleGator",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -14,8 +14,6 @@
     "express": "^4.17.1",
     "md5": "^2.2.1",
     "mongodb": "^3.7.3",
-    "mysql": "^2.18.1",
-    "node-linux": "^0.1.12",
-    "node-windows": "^1.0.0-beta.1"
+    "mysql": "^2.18.1"
   }
 }
