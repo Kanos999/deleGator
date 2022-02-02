@@ -13,6 +13,55 @@ exports.server = function() {
 		cookie = require('cookie'),
 		md5 = require("md5"),
 		port = 81;
+	var mongo = require("mongodb");
+
+	const { MongoClient } = require('mongodb');
+	const uri = "mongodb+srv://admin:QuantumCast999@cluster0.fv9cb.mongodb.net/dele?retryWrites=true&w=majority";
+	
+	
+	
+	async function dbInsert(collection, data) {
+		const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+		try {
+			console.log("inserting into:", collection);
+			await client.connect();
+			const table = client.db("dele").collection(collection);
+			const result = await table.insertOne(data);
+			console.log(`A document was inserted with the _id: ${result.insertedId}`);
+		} catch (err) {
+			console.log(err);	
+		} finally {
+			await client.close();
+		}
+	}
+
+	async function dbFetch(collection, query) {
+		const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+		try {
+			await client.connect();
+			console.log("searching collection:", collection);
+			const table = client.db("dele").collection(collection);
+			// Query for a movie that has the query
+			const result = await table.findOne(query);
+			// since this method returns the matched document, not a cursor, print it directly
+			console.log(result);
+			return result;
+		} finally {
+			await client.close();
+		}
+	}
+	// client.connect(err => {
+	// 	if (err) console.log(err);
+	// 	const users = client.db("dele").collection("users");
+	// 	const data = {
+	// 		username: req.query.username,
+	// 		email: req.query.email,
+	// 		password: req.query.password
+	// 	};
+	// 	users.insertOne(data)
+	// 	// perform actions on the collection object
+	// 	client.close();
+	// });
 
 	var pool = mysql.createPool({
 		connectionLimit: 5,
@@ -50,21 +99,25 @@ exports.server = function() {
 
 		switch (action) {
 			case "checkProfile":
-				console.log(req.query);
-			sql = `SELECT * from users WHERE (username = '${req.query.emailOrUsername}' OR email = '${req.query.emailOrUsername}') AND password = '${req.query.password}'`;
-			dbQuery(sql, function(err, rows) {
-				var result = { passwordOk: false };
-				if (rows.length) {
-					result.passwordOk = true;
-					res.cookie("username", rows[0].username);
-					res.cookie("password", rows[0].password);
-				}
-				res.json(result);
-			});
+			dbFetch("users", {username: req.query.emailOrUsername})
+			.then((matchingUser) => {
+				console.log("PLS FKN WORK:", matchingUser);
+				res.json({passwordOk:true})
+			}).catch(console.dir);
 			break;
 
 			case "addProfile":
-			sql = `SELECT * from users WHERE username = '${req.query.username}' OR email = '${req.query.email}'`;
+			//sql = `SELECT * from users WHERE username = '${req.query.username}' OR email = '${req.query.email}'`;
+			const data = {
+				username: req.query.username,
+				email: req.query.email,
+				password: req.query.password
+			};
+			dbInsert("users", data)
+			.then(() => {
+				res.json({newUser:true});
+			}).catch(console.dir);
+			break;
 			dbQuery(sql, function(err, rows) {
 				var result = { newUser: true };
 				if (rows.length) {
@@ -185,3 +238,4 @@ exports.server = function() {
 	app.listen(port);
 	console.log("Starting server on port", port);
 };
+

@@ -45,8 +45,8 @@ main.html
         </div>
 
         <div class="cardContainer">
-            <div id="project{{project.serial}}" class="card" ng-repeat="project in projects"
-                ng-click="getStages(project.serial)">
+            <div id="project{{project._id.toString()}}" class="card" ng-repeat="project in projects"
+                ng-click="getStages(project._id)">
                 {{project.name}}
                 <i class="material-icons editIcon" ng-click="openProjectDropdown(project)">edit</i>
             </div>
@@ -60,9 +60,9 @@ main.html
                 {{stage.name}}
                 <div class="story" ng-repeat="story in stories[$index]" ng-mousedown="moveStory(story)">
                     {{story.name}}
-                    <i class="material-icons editIcon" ng-click="openStoryDropdown(stage.serial, story)">edit</i>
+                    <i class="material-icons editIcon" ng-click="openStoryDropdown(stage._id, story)">edit</i>
                 </div>
-                <div class="addStory" ng-click="openStoryDropdown(stage.serial)">
+                <div class="addStory" ng-click="openStoryDropdown(stage._id)">
                     Add a story
                 </div>
             </div>

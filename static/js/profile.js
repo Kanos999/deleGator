@@ -14,7 +14,8 @@ app.controller("profilePageController", ["$scope", "$http", "$window", "$cookies
 
 	$scope.loginSubmit = function () {
 		if(!$scope.emailOrUsername || !$scope.loginPassword) {
-			alert("Please enter a Password");
+			alert("Fields missing");
+			console.log($scope.emailOrUsername, $scope.loginPassword)
 			return;
 		}
 
@@ -26,8 +27,9 @@ app.controller("profilePageController", ["$scope", "$http", "$window", "$cookies
 
 		$http.get("profileManager", { params: params }).then(function(res) {
 			// success
-			if (res.data.passwordOk) {
+			if (res.data.success) {
 				console.log("Correct Password");
+				localStorage.setItem('username', res.data.username);
 				window.location.href = "main.html";
 			}
 			else {
@@ -59,7 +61,7 @@ app.controller("profilePageController", ["$scope", "$http", "$window", "$cookies
 		//console.log(params);
 		$http.get("profileManager", { params: params }).then(function(res) {
 			//success
-			if (res.data.newUser) {
+			if (res.data.success) {
 				window.location.href = "main.html";
 			}
 			else {

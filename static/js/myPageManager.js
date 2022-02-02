@@ -4,7 +4,7 @@ myPageManager.js
 
 var app = angular.module("myPage", ["ngCookies"]);
 
-app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$compile", function($scope, $http, $window, $cookies, $compile) {
+app.controller("mainController", ["$scope", "$http", "$window", "$compile", function($scope, $http, $window, $compile) {
 
 	$(".dim").hide();
 	$(".projectDropdown").hide();
@@ -19,34 +19,36 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 	$scope.stories = [];
 	var currentProject = -1;
 	function refreshProjects() {
+		console.log("CURRENT SIGN IN:", localStorage.getItem('username'));
 		var params = {
 			action: "getProjects",
-			username: $cookies.get("username"),
+			username: localStorage.getItem('username'),
 		};
 		$http.get("myPageManager", { params: params }).then(function(res) {
 			//success
-			$scope.projects = res.data.rows;
-			manuallyGetStages(res.data.rows[0].serial);
-			$("#project" + res.data.rows[0].serial).addClass("selectedProject");
+			$scope.projects = res.data.projects;
+			if (currentProject == -1) currentProject = res.data.projects[0]._id.toString();
 		}, function() {
 			// failure
 			console.log("FAIL");
 		});
 	}
 	refreshProjects();
+	manuallyGetStages(currentProject);
 
 
-	$scope.getStages = function(serial) {
-		currentProject = serial;
+	$scope.getStages = function(projectID) {
+		$scope.stages = [];
+		currentProject = projectID;
 		$(".card").removeClass("selectedProject");
 		$("#project" + currentProject).addClass("selectedProject");
 		var params = {
 			action: "getStages",
-			projectSerial: serial
+			projectID: projectID
 		};
 		$http.get("myPageManager", { params: params }).then(function(res) {
 			//success
-			$scope.stages = res.data.rows;
+			$scope.stages = res.data.stages;
 		}, function() {
 			// failure
 			console.log("FAIL");
@@ -57,11 +59,11 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 		//console.log(stage);
 		var params = {
 			action: "getStories",
-			stageSerial: stage.serial
+			stageID: stage._id
 		};
 		$http.get("myPageManager", { params: params }).then(function(res) {
 			//success
-			$scope.stories[stageIndex] = res.data.rows;
+			$scope.stories[stageIndex] = res.data.stories;
 		}, function() {
 			// failure
 			console.log("FAIL");
@@ -100,8 +102,8 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 
 			var params = {
 				action: "changeStory",
-				storySerial: $scope.currentStory.serial,
-				newStageSerial: stage.serial
+				storyID: $scope.currentStory._id,
+				newStageID: stage._id
 			};
 			$http.get("myPageManager", { params: params }).then(function(res) {
 				//success
@@ -116,16 +118,17 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 		}
 	};
 
-	function manuallyGetStages(projectSerial) {
-		$(".card").removeClass("selectedProject");
-		$("#project" + projectSerial).addClass("selectedProject");
+	function manuallyGetStages(projectID) {
+		$(".card").not("#project" + projectID).removeClass("selectedProject");
+		$("#project" + projectID).addClass("selectedProject");
 		var params = {
 			action: "getStages",
-			projectSerial: projectSerial
+			projectID: projectID
 		};
 		$http.get("myPageManager", { params: params }).then(function(res) {
 			//success
-			$scope.stages = res.data.rows;
+			$scope.stages = res.data.stages;
+			$("#project" + projectID).addClass("selectedProject");
 		}, function() {
 			// failure
 			console.log("FAIL");
@@ -159,13 +162,13 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 		if($scope.currentProjectName === "Create a Project") {
 			params = {
 				action: "createProject",
-				username: $cookies.get("username"),
+				username: localStorage.getItem("username"),
 				projectName: $scope.newProjectName
 			};
 		} else {
 			params = {
 				action: "editProject",
-				projectSerial: currentProject,
+				projectID: currentProject,
 				newProjectName: $scope.newProjectName
 			};
 		}
@@ -175,6 +178,8 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 				$(".dim").fadeOut(200);
 				$(".projectDropdown").fadeOut(200);
 				refreshProjects();
+				console.log("ONLY THING:", res.data);
+				manuallyGetStages(res.data.project);
 			}
 		}, function() {
 			// failure
@@ -196,7 +201,7 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 	$scope.submitStageChanges = function() { //Fuction for creating and editing stages
 		var params = {
 			action: "createStage",
-			projectSerial: currentProject,
+			projectID: currentProject,
 			newStageName: $scope.newStageName
 		};
 		$http.get("myPageManager", { params: params }).then(function(res) {
@@ -217,13 +222,13 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 	//	STORY-RELATED FUNCTIONS
 	//
 
-	var currentStageSerial;
-	var currentStorySerial;
-	$scope.openStoryDropdown = function(stageSerial, story) {
-		currentStageSerial = stageSerial;
+	var currentStageID;
+	var currentStoryID;
+	$scope.openStoryDropdown = function(stageID, story) {
+		currentStageID = stageID;
 		if(story) {
 			$scope.currentStoryName = "Edit story '" + story.name + "'";
-			currentStorySerial = story.serial;
+			currentStoryID = story._id;
 		} else {
 			$scope.currentStoryName = "Add a Story";
 		}
@@ -237,13 +242,13 @@ app.controller("mainController", ["$scope", "$http", "$window", "$cookies", "$co
 		if($scope.currentStoryName === "Add a Story") {
 			params = {
 				action: "createStory",
-				stageSerial: currentStageSerial,
+				stageID: currentStageID,
 				newStoryName: $scope.newStoryName
 			};
 		} else {
 			params = {
 				action: "editStory",
-				storySerial: currentStorySerial,
+				storyID: currentStoryID,
 				newStoryName: $scope.newStoryName
 			};
 		}
