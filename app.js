@@ -4,6 +4,7 @@ app.js
 
 /*jshint esversion: 6 */
 
+
 var express = require("express"),
 	app = express(),
 	mysql = require("mysql"),
@@ -13,8 +14,7 @@ var express = require("express"),
 var ObjectId = require('mongodb').ObjectID;
 
 const { MongoClient } = require('mongodb');
-const uri = "mongodb://admin:QuantumCast999@cluster0-shard-00-00.fv9cb.mongodb.net:27017,cluster0-shard-00-01.fv9cb.mongodb.net:27017,cluster0-shard-00-02.fv9cb.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-mmezjd-shard-0&authSource=admin&retryWrites=true&w=majority";
-
+const uri = require("./mongoConfig").uri;
 
 async function dbInsert(collection, data) {
 	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
