@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,6 @@
     "cookie": "^0.4.0",
     "express": "^4.17.1",
     "md5": "^2.2.1",
-    "mongodb": "^3.7.3",
-    "mysql": "^2.18.1"
+    "mongodb": "^3.7.3"
   }
 }
